@@ -1,0 +1,8 @@
+
+*.xcconfig
+
+*.lock
+
+*.pbxproj
+
+*.xcworkspacedata
