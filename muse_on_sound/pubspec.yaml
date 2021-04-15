@@ -16,6 +16,7 @@ dependencies:
   get: ^4.0.0-nullsafety.2
   permission_handler: ^6.1.1
   audioplayers: ^0.18.1
+  flutter_launcher_icons: ^0.9.0
 
 dev_dependencies:
   flutter_test:
@@ -31,3 +32,8 @@ flutter:
 
 flutter_native_splash:
   color: "#42a5f5"
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "images/launcher_icon.png"
