@@ -32,6 +32,9 @@ flutter:
     - family: PlayballRegular
       fonts:
         - asset: fonts/Playball_Regular.ttf
+    - family: AppleSDGothicNeo
+      fonts:
+        - asset: fonts/AppleSDGothicNeoL.ttf
 
 flutter_native_splash:
   color: "#42a5f5"
