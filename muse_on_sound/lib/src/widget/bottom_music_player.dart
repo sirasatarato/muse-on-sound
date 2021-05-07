@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:marquee/marquee.dart';
 import 'package:muse_on_sound/src/controller/music_controller.dart';
 import 'package:muse_on_sound/src/pages/detail_page.dart';
 import 'package:muse_on_sound/src/widget/cover.dart';
@@ -36,13 +37,19 @@ class BottomMusicPlayer extends StatelessWidget {
         width: 66,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15),
-          child: Cover(),
+          child: Cover(_musicController.selectedMusic.cover ?? ''),
         ),
       ),
     );
   }
 
   GestureDetector buildSongInfo() {
+    var tp = TextPainter(
+      text: TextSpan(text: _musicController.selectedMusic.name),
+      textDirection: TextDirection.ltr,
+      maxLines: 1,
+    )..layout(maxWidth: Get.width - 146);
+
     return GestureDetector(
       onTap: goToDetailPage,
       child: Padding(
@@ -50,9 +57,20 @@ class BottomMusicPlayer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              _musicController.selectedMusic.name,
-              style: TextStyle(fontSize: 16, color: Colors.white),
+            Expanded(
+              child: tp.didExceedMaxLines
+                  ? Marquee(
+                      scrollAxis: Axis.horizontal,
+                      blankSpace: 20,
+                      velocity: 80.0,
+                      pauseAfterRound: Duration(seconds: 1),
+                      text: _musicController.selectedMusic.name,
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                    )
+                  : Text(
+                      _musicController.selectedMusic.name,
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                    ),
             ),
             Text(
               _musicController.selectedMusic.artistName,
