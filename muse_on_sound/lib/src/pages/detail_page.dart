@@ -32,7 +32,7 @@ class DetailPage extends StatelessWidget {
       height: 200,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(100),
-        child: Cover(),
+        child: Cover(_musicController.selectedMusic.cover ?? ''),
       ),
     );
   }
@@ -54,7 +54,7 @@ class DetailPage extends StatelessWidget {
 
   AppBar buildAppBar() {
     return AppBar(
-      backgroundColor: Color(0xff234567),
+      backgroundColor: Color(0xff123456),
       centerTitle: true,
       elevation: 0,
       title: Column(
