@@ -1,7 +1,7 @@
 class Music {
   final String name;
   final String artistName;
-  final String Image;
+  final String? cover;
 
-  Music(this.name, this.artistName, this.Image);
+  Music(this.name, this.artistName, {this.cover});
 }
