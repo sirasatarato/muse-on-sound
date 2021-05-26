@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:muse_on_sound/src/controller/nav_controller.dart';
 import 'package:muse_on_sound/src/pages/home_page.dart';
-import 'package:muse_on_sound/src/pages/play_list_page.dart';
+import 'package:muse_on_sound/src/pages/play_track_page.dart';
 import 'package:muse_on_sound/src/widget/bottom_music_player.dart';
 import 'package:muse_on_sound/src/widget/gradient_wrapper.dart';
 
@@ -11,7 +11,7 @@ class PageFrame extends StatelessWidget {
   final List<Widget> bodyContent = [
     HomePage(),
     Container(),
-    PlayListPage(),
+    PlayTrackPage(),
   ];
 
   @override

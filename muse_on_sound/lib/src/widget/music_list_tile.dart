@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:flutter_audio_query/flutter_audio_query.dart';
 import 'package:get/get.dart';
 import 'package:muse_on_sound/src/controller/music_controller.dart';
+import 'package:muse_on_sound/src/model/music_model.dart';
 import 'package:muse_on_sound/src/widget/cover.dart';
 
 class MusicListTile extends StatelessWidget {
   final MusicController _musicController = Get.find();
-  final SongInfo _songInfo;
+  final Music _music;
 
-  MusicListTile(this._songInfo);
+  MusicListTile(this._music);
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +17,14 @@ class MusicListTile extends StatelessWidget {
         width: 36,
         height: 36,
         color: Colors.white,
-        child: Cover(_songInfo.id),
+        child: Cover(_music.songInfo!.id),
       ),
-      title: Text(_songInfo.title,
+      title: Text(_music.name,
           style: TextStyle(color: Colors.white),
           overflow: TextOverflow.ellipsis),
-      subtitle: Text(_songInfo.artist, style: TextStyle(color: Colors.grey)),
+      subtitle: Text(_music.artistName, style: TextStyle(color: Colors.grey)),
       trailing: Icon(Icons.more_vert_rounded, color: Colors.white),
-      onTap: () => _musicController.setSelectedMusic(_songInfo),
+      onTap: () => _musicController.setSelectedMusic(_music),
     );
   }
 }

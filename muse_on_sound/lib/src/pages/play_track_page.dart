@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PlayListPage extends StatelessWidget {
+class PlayTrackPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

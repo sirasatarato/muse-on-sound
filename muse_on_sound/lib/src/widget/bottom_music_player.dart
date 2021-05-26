@@ -37,7 +37,7 @@ class BottomMusicPlayer extends StatelessWidget {
         width: 66,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15),
-          child: Cover(_musicController.selectedMusic.cover ?? ''),
+          child: Cover(_musicController.selectedMusic.songInfo?.id ?? ''),
         ),
       ),
     );
@@ -82,18 +82,22 @@ class BottomMusicPlayer extends StatelessWidget {
     );
   }
 
-  IconButton buildPlayButton() {
-    return IconButton(
-      icon: Icon(
-        Icons.play_arrow_rounded,
-        size: 48,
-        color: Colors.white,
+  Widget buildPlayButton() {
+    return Obx(
+      () => IconButton(
+        icon: Icon(
+          _musicController.isPlay ? Icons.pause : Icons.play_arrow_rounded,
+          size: 48,
+          color: Colors.white,
+        ),
+        onPressed: _musicController.playLocal,
       ),
-      onPressed: () {},
     );
   }
 
   void goToDetailPage() {
-    Get.to(() => DetailPage());
+    if (_musicController.selectedMusic.songInfo != null) {
+      Get.to(() => DetailPage());
+    }
   }
 }
