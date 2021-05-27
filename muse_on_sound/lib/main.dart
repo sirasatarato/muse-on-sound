@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Muse on Sound',
       theme: ThemeData(accentColor: Color(0xFFDD0870)),
       home: FutureBuilder(
-        future: Future.delayed(Duration(seconds: 3)),
+        future: Future.delayed(Duration(seconds: 0)),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
           if(snapshot.connectionState == ConnectionState.done) {
             return PageFrame();

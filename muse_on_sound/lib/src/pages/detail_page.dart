@@ -192,7 +192,7 @@ class DetailPage extends StatelessWidget {
                 scrollDirection: Axis.vertical,
                 itemCount: _musicController.musicList.length,
                 itemBuilder: (context, index) {
-                  return MusicListTile(_musicController.musicList[index]);
+                  return MusicListTile(_musicController.musicList, index);
                 },
               ),
             ),

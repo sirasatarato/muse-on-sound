@@ -28,15 +28,13 @@ class HomePage extends StatelessWidget {
         overscroll.disallowGlow();
         return true;
       },
-      child: Obx(
-        () => ListView.builder(
-          shrinkWrap: true,
-          scrollDirection: Axis.vertical,
-          itemCount: _musicController.musicList.length,
-          itemBuilder: (context, index) {
-            return MusicListTile(_musicController.musicList[index]);
-          },
-        ),
+      child: ListView.builder(
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        itemCount: _musicController.allMusicList.length,
+        itemBuilder: (context, index) {
+          return MusicListTile(_musicController.allMusicList, index);
+        },
       ),
     );
   }

@@ -14,6 +14,7 @@ class MusicController extends GetxController {
   final AudioPlayer audioPlayer = AudioPlayer();
   final _selectedMusic = Music('Unknown', '<Unknown>').obs;
   final _musicList = <Music>[].obs;
+  late var _allMusicList = <Music>[];
   final _isPlay = false.obs;
   final _isShuffle = false.obs;
   final _isRepeat = Repeat.NONE.obs;
@@ -34,15 +35,18 @@ class MusicController extends GetxController {
     });
 
     FlutterAudioQuery().getSongs().then((value) {
-      musicList =
+      var list =
           value.map((e) => Music(e.title, e.artist, songInfo: e)).toList();
+      _allMusicList = list;
+      musicList = list;
     });
   }
 
+  List<Music> get allMusicList => _allMusicList;
+
   Music get selectedMusic => _selectedMusic.value;
 
-  // ignore: invalid_use_of_protected_member
-  List<Music> get musicList => _musicList.value;
+  List<Music> get musicList => _musicList;
 
   set musicList(List<Music> value) => _musicList.value = value;
 
