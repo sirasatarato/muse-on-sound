@@ -6,15 +6,9 @@ import 'package:muse_on_sound/src/pages/play_track_page.dart';
 import 'package:muse_on_sound/src/widget/bottom_music_player.dart';
 import 'package:muse_on_sound/src/widget/gradient_wrapper.dart';
 
-import 'search_page.dart';
-
 class PageFrame extends StatelessWidget {
   final NavController _navController = Get.find();
-  final List<Widget> bodyContent = [
-    HomePage(),
-    SearchPage(),
-    PlayTrackPage(),
-  ];
+  final List<Widget> bodyContent = [HomePage(), PlayTrackPage()];
 
   @override
   Widget build(BuildContext context) {
@@ -54,10 +48,6 @@ class PageFrame extends StatelessWidget {
               items: [
                 BottomNavigationBarItem(
                   icon: Icon(Icons.home),
-                  label: '',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.search),
                   label: '',
                 ),
                 BottomNavigationBarItem(

@@ -1,4 +1,3 @@
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_audio_query/flutter_audio_query.dart';
 import 'package:get/get.dart';
 
@@ -19,14 +18,15 @@ class TrackController extends GetxController {
 
   void createTrack(String name) async {
     _trackList.add(await FlutterAudioQuery.createPlaylist(playlistName: name));
+    update();
   }
 
-  void addMusicOnTrack(PlaylistInfo track, SongInfo song) async {
-    await track.addSong(song: song);
+  void addMusicOnTrack(SongInfo song) async {
+    await selectedTrack.addSong(song: song);
   }
 
-  void removeMusicOnTrack(PlaylistInfo track, SongInfo song) async {
-    await track.removeSong(song: song);
+  void removeMusicOnTrack(SongInfo song) async {
+    await selectedTrack.removeSong(song: song);
   }
 
   Future<List<SongInfo>> getSongList(PlaylistInfo track) async {

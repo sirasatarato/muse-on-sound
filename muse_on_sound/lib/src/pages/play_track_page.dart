@@ -25,20 +25,30 @@ class PlayTrackPage extends StatelessWidget {
                   style: TextStyle(fontSize: 16, color: Colors.grey),
                 ),
                 Spacer(),
-                Icon(Icons.add, size: 28, color: Colors.white),
-                SizedBox(width: 8),
-                GestureDetector(
-                  onTap: () {
+                IconButton(
+                  onPressed: () {
                     Get.dialog(
-                      Container(
-                        child: TextField(
-                          onSubmitted: (v) => _controller.createTrack(v),
+                      Scaffold(
+                        backgroundColor: Colors.transparent,
+                        body: Center(
+                          child: SizedBox(
+                            width: Get.width / 2,
+                            height: 44,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true
+                              ),
+                              onSubmitted: _controller.createTrack,
+                            ),
+                          ),
                         ),
                       ),
                     );
                   },
-                  child: Icon(
-                    Icons.more_vert_rounded,
+                  icon: Icon(
+                    Icons.add,
+                    size: 28,
                     color: Colors.white,
                   ),
                 ),
